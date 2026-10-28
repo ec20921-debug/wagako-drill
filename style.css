@@ -1,0 +1,141 @@
+/* わが子ドリル工房 — スマホ向け。子どもが押しやすい大きさにする */
+:root {
+  --coral: #E8604C;
+  --coral-t: #FDEDEA;
+  --navy: #24304A;
+  --cream: #FFF8F3;
+  --mint: #2E9E86;
+  --mint-t: #E3F5F0;
+  --red: #D9443F;
+  --red-t: #FCE8E7;
+  --star: #F5B82E;
+  --gray: #6B7280;
+  --line: #EADFD8;
+  --card: #FFFFFF;
+  --radius: 16px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-bottom: calc(76px + env(safe-area-inset-bottom));
+}
+a { color: var(--coral); }
+.top { padding: 14px 16px 6px; }
+.logo { font-weight: 800; font-size: 19px; color: var(--navy); text-decoration: none; }
+.logo-mark { margin-right: 6px; }
+main { max-width: 640px; margin: 0 auto; padding: 4px 16px 24px; }
+
+/* 下のメニュー */
+.tabs {
+  position: fixed; left: 0; right: 0; bottom: 0; display: flex; background: #fff;
+  border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); z-index: 10;
+}
+.tabs a { flex: 1; text-align: center; padding: 8px 0 10px; font-size: 12px; color: var(--gray); text-decoration: none; }
+.tabs a span { display: block; font-size: 22px; line-height: 1.2; }
+.tabs a.on { color: var(--coral); font-weight: 700; }
+
+h2 { font-size: 21px; margin: 14px 0 8px; }
+h3 { font-size: 17px; margin: 16px 0 6px; }
+.muted { color: var(--gray); font-size: 14px; }
+.small { font-size: 13px; }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; margin: 10px 0; }
+.card.tint { background: var(--coral-t); border-color: #F6C9C0; }
+
+/* コーチの吹き出し */
+.coach { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0 12px; }
+.coach .face { font-size: 40px; line-height: 1; }
+.coach .bubble { background: #fff; border: 2px solid var(--coral); border-radius: 16px; padding: 10px 14px; font-weight: 700; position: relative; }
+
+/* 星・続けた日数など */
+.stats { display: flex; gap: 8px; margin: 6px 0 10px; }
+.stat { flex: 1; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px 6px; text-align: center; }
+.stat b { display: block; font-size: 20px; }
+.stat span { font-size: 12px; color: var(--gray); }
+
+/* ボタン */
+.btn {
+  display: inline-block; border: none; border-radius: 14px; padding: 13px 18px; font-size: 17px; font-weight: 800;
+  background: var(--coral); color: #fff; cursor: pointer; text-decoration: none; text-align: center; font-family: inherit;
+}
+.btn:active { transform: translateY(1px); }
+.btn.sub { background: #fff; color: var(--coral); border: 2px solid var(--coral); }
+.btn.ghost { background: transparent; color: var(--gray); border: 1px solid var(--line); font-weight: 600; }
+.btn.mint { background: var(--mint); }
+.btn.wide { display: block; width: 100%; margin: 10px 0; }
+.btn[disabled] { opacity: .45; cursor: default; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+.row .btn { flex: 1; }
+
+/* ドリルのカード */
+.drill-title { font-weight: 800; font-size: 18px; }
+.tag { display: inline-block; font-size: 12px; background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; margin-right: 4px; color: var(--gray); }
+.tag.sample { background: #FFF3D6; border-color: #F5DFA0; color: #8A6400; }
+
+/* フォーム */
+label.f { display: block; font-weight: 700; margin: 12px 0 4px; }
+select, input[type=text], input[type=number], textarea {
+  width: 100%; font-size: 17px; padding: 11px 12px; border: 2px solid var(--line); border-radius: 12px; background: #fff; color: var(--navy); font-family: inherit;
+}
+textarea { min-height: 150px; line-height: 1.5; }
+textarea.prompt { min-height: 220px; font-size: 14px; background: #FBFAF9; }
+.seg { display: flex; gap: 6px; flex-wrap: wrap; }
+.seg button { flex: 1; min-width: 70px; padding: 10px 8px; border-radius: 12px; border: 2px solid var(--line); background: #fff; font-size: 15px; font-weight: 700; color: var(--navy); font-family: inherit; cursor: pointer; }
+.seg button.on { border-color: var(--coral); background: var(--coral-t); color: var(--coral); }
+.seg.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+.seg.grid3 button { min-width: 0; }
+.step { display: inline-block; background: var(--navy); color: #fff; border-radius: 999px; width: 28px; height: 28px; text-align: center; line-height: 28px; font-weight: 800; margin-right: 6px; }
+.ai-links { display: flex; gap: 6px; margin-top: 8px; }
+.ai-links a { flex: 1; text-align: center; padding: 9px 4px; border: 1px solid var(--line); border-radius: 10px; background: #fff; text-decoration: none; font-weight: 700; font-size: 14px; }
+
+/* 読み取り結果 */
+.qprev { border-left: 4px solid var(--mint); padding: 8px 10px; margin: 8px 0; background: #fff; border-radius: 8px; }
+.qprev.bad { border-left-color: var(--red); background: var(--red-t); }
+.qprev .ans { color: var(--mint); font-weight: 800; }
+.qprev .warn { color: var(--red); font-weight: 700; font-size: 14px; }
+.qprev label { font-size: 14px; color: var(--gray); }
+.check { display: flex; gap: 8px; align-items: flex-start; margin: 12px 0; font-weight: 700; }
+.check input { width: 22px; height: 22px; margin-top: 3px; flex: none; }
+
+/* とく画面 */
+.meter { height: 14px; background: #fff; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--star); transition: width .3s; }
+.meter-label { text-align: center; font-weight: 800; margin: 6px 0 10px; }
+.qcard { background: #fff; border-radius: 20px; border: 2px solid var(--line); padding: 22px 18px; font-size: 24px; font-weight: 800; text-align: center; white-space: pre-wrap; min-height: 110px; }
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+.choices button { padding: 18px 8px; font-size: 20px; font-weight: 800; border-radius: 16px; border: 2px solid var(--line); background: #fff; color: var(--navy); cursor: pointer; font-family: inherit; }
+.choices button.right { background: var(--mint-t); border-color: var(--mint); color: var(--mint); }
+.choices button.wrong { background: var(--red-t); border-color: var(--red); color: var(--red); }
+.answer-row { display: flex; gap: 8px; margin: 14px 0; }
+.answer-row input { font-size: 24px; text-align: center; }
+.answer-row .btn { flex: none; }
+.judge { text-align: center; font-size: 56px; font-weight: 900; margin: 4px 0; }
+.judge.ok { color: var(--mint); }
+.judge.ng { color: var(--red); }
+.explain { background: var(--cream); border-radius: 12px; padding: 10px 12px; margin: 8px 0; }
+
+/* 結果・ガチャ */
+.big { font-size: 44px; font-weight: 900; text-align: center; margin: 6px 0; }
+.gacha { text-align: center; padding: 18px 0; }
+.capsule { font-size: 90px; display: inline-block; }
+.capsule.spin { animation: spin .9s ease-in-out; }
+@keyframes spin { 0% { transform: rotate(0) scale(.6); } 60% { transform: rotate(540deg) scale(1.15); } 100% { transform: rotate(720deg) scale(1); } }
+.rar { font-weight: 900; }
+.rar.R { color: #2B6CB0; }
+.rar.SR { color: #B7791F; }
+.zukan { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.zukan div { background: #fff; border: 1px solid var(--line); border-radius: 12px; text-align: center; padding: 8px 2px; font-size: 30px; }
+.zukan div small { display: block; font-size: 10px; color: var(--gray); }
+.zukan div.none { filter: grayscale(1); opacity: .3; }
+
+/* きろく */
+.bars { display: flex; gap: 4px; align-items: flex-end; height: 50px; margin: 6px 0; }
+.bars i { flex: 1; background: var(--mint); border-radius: 4px 4px 0 0; min-height: 3px; }
+.weak { border-left: 4px solid var(--star); padding: 6px 10px; margin: 6px 0; background: #fff; border-radius: 8px; font-size: 15px; }
+.note { font-size: 13px; color: var(--gray); background: #fff; border: 1px dashed var(--line); border-radius: 12px; padding: 10px 12px; margin: 16px 0; }
+.toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); background: var(--navy); color: #fff; padding: 10px 18px; border-radius: 999px; font-weight: 700; z-index: 20; }
