@@ -65,6 +65,7 @@
     var t = String(s);
     if (t.normalize) t = t.normalize('NFKC');
     t = t.replace(/[−‐-―－]/g, '-'); // いろいろなマイナス・ダッシュ
+    t = t.replace(/、/g, ','); // 「x=2、y=3」と「x=2,y=3」を同じに（全角の，は NFKC で , になる）
     t = t.replace(/\s+/g, '').replace(/[。．]+$/, '').replace(/(\D)\.+$/, '$1');
     if (/^-?\d{1,3}(,\d{3})+(\.\d+)?$/.test(t)) t = t.replace(/,/g, ''); // 1,200 → 1200（3けた区切りだけ）
     return keepCase ? t : t.toLowerCase();

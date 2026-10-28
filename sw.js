@@ -1,6 +1,6 @@
 // わが子ドリル工房 — オフラインでも開けるように、画面の部品をキャッシュする
 // 中身を変えたら CACHE の番号を上げる（公開版の確認もこの番号で行う）
-const CACHE = 'wagako-v1';
+const CACHE = 'wagako-v2';
 const ASSETS = ['./', 'index.html', 'style.css', 'parser.js', 'samples.js', 'app.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png'];
 
 self.addEventListener('install', (e) => {

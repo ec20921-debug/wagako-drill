@@ -136,6 +136,13 @@ t('小数は 0.5 と 0.50 を同じと見る。3けた区切りでない 1,2 は
   assert.ok(P.isCorrect({ a: ['12000'] }, '12,000'));
 });
 
+t('読点「、」・全角「，」・半角「,」の区切りは同じと見る', () => {
+  assert.ok(P.isCorrect({ a: ['x=2、y=3'] }, 'x=2,y=3'));
+  assert.ok(P.isCorrect({ a: ['x=2、y=3'] }, 'x=2, y=3'));
+  assert.ok(P.isCorrect({ a: ['x=2,y=3'] }, 'x＝2，y＝3'));
+  assert.ok(!P.isCorrect({ a: ['x=2、y=3'] }, 'y=3,x=2'));
+});
+
 t('大文字が2つ以上の答え（化学式など）は大文字・小文字を区別する', () => {
   assert.ok(P.isCorrect({ a: ['CO2'] }, 'CO2'));
   assert.ok(P.isCorrect({ a: ['CO2'] }, 'ＣＯ２'));
